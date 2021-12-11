@@ -1,4 +1,4 @@
-# mainSections = ["post", "posts"] # Default to ["posts"].
+# mainSections = ["post", "guide", "blog"] # Default to ["posts"].
 
 # titleSeparator = "|" # Title separator. Default to "-".
 
@@ -11,7 +11,7 @@ metaRobots = "noindex, nofollow" # Default value for Meta Tag "robots"
 
 # logo = "images/logo.png" # Logo image. Default to "images/logo.webp".
 # logo = false # Disable Logo
-brand = "BOOTSTRAP"
+brand = "平平安安的狗窝"
 
 palette = "blue" # Default palette. Optional.
 # palettes = ["blue", "blue gray", "brown"] # Available palettes. Default to ALL.

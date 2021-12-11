@@ -4,9 +4,9 @@ theme = "hugo-theme-bootstrap"
 copyright = "Copyright © 2020-{year} Yao Yuqi. All Rights Reserved."
 
 # Multilingual mode
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = true # If you use only one language comment this option
-#disableLanguages = ["fr", "zh-cn" ,"zh-tw"] # For disable one or more language
+disableLanguages = ["fr", "zh-tw"] # For disable one or more language
 
 # Pagination
 paginate = 10
