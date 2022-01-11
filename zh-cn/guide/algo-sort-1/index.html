@@ -11,7 +11,7 @@
 <meta name=description content><meta itemprop=name content="排序-基本排序">
 <meta itemprop=description content="本文内容来自 Algorithhms 4th Edition 前言 排序就是将对象按照一定的顺序排列。据统计，大约有30%的运算都是排序。 有三个理由让我们需要研究排序： 研究排序算法是我们"><meta itemprop=datePublished content="2022-01-10T11:26:12+08:00">
 <meta itemprop=dateModified content="2022-01-10T11:26:12+08:00">
-<meta itemprop=wordCount content="3066">
+<meta itemprop=wordCount content="3067">
 <meta itemprop=keywords content="sorting,"><meta property="og:title" content="排序-基本排序">
 <meta property="og:description" content="本文内容来自 Algorithhms 4th Edition 前言 排序就是将对象按照一定的顺序排列。据统计，大约有30%的运算都是排序。 有三个理由让我们需要研究排序： 研究排序算法是我们">
 <meta property="og:type" content="article">
@@ -350,10 +350,8 @@ Demo(China)
 <span class=ln>16</span>shell----split = 17, to 1000000 random array, spent 1022 millis 
 <span class=ln>17</span>shell----split = 18, to 1000000 random array, spent 1116 millis 
 <span class=ln>18</span>shell----split = 19, to 1000000 random array, spent 1145 millis 
-</code></pre></div><p>从上面可以看出，当split比较小时，我们最开始循环的子数组数量比较少，速度比较快。 想想对于16长度，3倍分割，第一次从13开始，子数组长度是2， 如果是4倍分割，则从5开始，那么排在10以后的需要排3个， 由此可见， 小数组和部分排序的数组是影响插入排序效率的关键</p>
-<ol>
-<li>贝壳排序的核心就是对于h,用插入排序来独立的处理每个h 序列。注意每次h是开头，所以要求j> h</li>
-</ol>
+</code></pre></div><p>从上面可以看出，当split比较小时，我们最开始循环的子数组数量比较少，速度比较快。 想想对于16长度，3倍分割，第一次从13开始，子数组长度是2， 如果是4倍分割，则从5开始，那么排在10以后的需要排3个， 由此可见， 小数组和部分排序的数组是影响插入排序效率的关键
+3. 贝壳排序的核心就是对于h,用插入排序来独立的处理每个h 序列。注意每次h是开头，所以要求j> h</p>
 <p>如何决定分割量的大小？不同的值倍研究过，但还没有找到最佳的值，因此按例子中3倍来是可行的</p>
 <h4 id=执行时间>执行时间</h4>
 <p><strong>贝壳排序的实行时间不在是N2的倍数。 例如上面算法最坏情况下是N3/2</strong></p>
