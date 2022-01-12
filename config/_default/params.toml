@@ -2,8 +2,8 @@
 
 # titleSeparator = "|" # Title separator. Default to "-".
 
-description = "An extreme fast, responsive and feature-rich blog theme for Hugo"
-keywords = "Hugo, Bootstrap, Blog Theme"
+description = "随便写写，随便看看"
+keywords = "生活琐碎, 代码"
 # images = ["site-feature-image.jpg"]
 
 metaRobots = "noindex, nofollow" # Default value for Meta Tag "robots"
@@ -15,9 +15,9 @@ brand = "平平安安的狗窝"
 
 palette = "blue" # Default palette. Optional.
 # palettes = ["blue", "blue gray", "brown"] # Available palettes. Default to ALL.
-# palettes = [] # Disable palette switcher.
+palettes = ["blue"] # Disable palette switcher.
 
-# color = "dark" # light, dark or dynamic. Default to dynamic.
+color = "light" # light, dark or dynamic. Default to dynamic.
 
 # fullWidth = true # Full width.
 # fixedHeader = false # Turn on/off fixed header.
