@@ -15,9 +15,9 @@ brand = "平平安安的狗窝"
 
 palette = "blue" # Default palette. Optional.
 # palettes = ["blue", "blue gray", "brown"] # Available palettes. Default to ALL.
-palettes = ["blue"] # Disable palette switcher.
+# palettes = ["blue"] # Disable palette switcher.
 
-color = "light" # light, dark or dynamic. Default to dynamic.
+color = "dynamic" # light, dark or dynamic. Default to dynamic.
 
 # fullWidth = true # Full width.
 # fixedHeader = false # Turn on/off fixed header.

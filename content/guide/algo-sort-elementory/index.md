@@ -10,7 +10,7 @@ categories = [
   "算法"
 ]
 tags = [
-  "sorting"
+  "sort"
 ]
 series = []
 images = []
