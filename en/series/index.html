@@ -1,4 +1,4 @@
-<!doctype html><html lang=en data-mode=light>
+<!doctype html><html lang=en>
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
@@ -70,6 +70,18 @@ English
 </form>
 </section>
 <section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> Mode</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
 <form class="font-size-switcher-form row">
 <div class=col-auto>
 <label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> Font Size</label>
@@ -91,6 +103,17 @@ English
 </div>
 </form>
 <div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=Blue class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label="Blue Gray" class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=Brown class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=Cyan class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=Green class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=Indigo class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=Orange class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=Pink class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=Purple class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=Red class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=Teal class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=Yellow class="btn btn-sm palette" data-palette=yellow>
 </button></div>
 </section>
 <section class="setting actions d-flex justify-content-center mt-auto">
@@ -110,36 +133,7 @@ English
 <input class="form-control rounded-pill" name=q type=search aria-label=Search>
 </div>
 </form>
-<ul class="navbar-nav ms-auto"><li class="nav-item dropdown">
-<a class=nav-link id=navbarDropdownSupport role=button data-bs-toggle=dropdown aria-expanded=false>
-<i class="fas fa-fw fa-chevron-circle-down"></i>Support
-</a>
-<ul class=dropdown-menu aria-labelledby=navbarDropdownSupport><li>
-<a class=dropdown-item href=https://github.com/razonyang/hugo-theme-bootstrap target=_blank rel="noopener noreferrer">
-Repository
-</a>
-</li><li>
-<a class=dropdown-item href=https://github.com/razonyang/hugo-theme-bootstrap/discussions/new target=_blank rel="noopener noreferrer">
-Discussions
-</a>
-</li><li>
-<a class=dropdown-item href="https://github.com/razonyang/hugo-theme-bootstrap/issues/new?template=feature_request.md" target=_blank rel="noopener noreferrer">
-Features Request
-</a>
-</li><li>
-<a class=dropdown-item href="https://github.com/razonyang/hugo-theme-bootstrap/issues/new?template=bug_report.md" target=_blank rel="noopener noreferrer">
-Bug Report
-</a>
-</li><li><hr class=dropdown-divider></li><li>
-<a class=dropdown-item href=https://hbs.razonyang.com target=_blank rel="noopener noreferrer">
-Demo(Netlify)
-</a>
-</li><li>
-<a class=dropdown-item href=https://hbs-cn.razonyang.com target=_blank rel="noopener noreferrer">
-Demo(China)
-</a>
-</li></ul>
-</li></ul>
+<ul class="navbar-nav ms-auto"></ul>
 </div>
 </div>
 </nav>

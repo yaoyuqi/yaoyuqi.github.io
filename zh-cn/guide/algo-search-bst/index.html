@@ -2,25 +2,25 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Use Hugo With Github Page - 平平安安的狗窝</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
+<title>查找-二叉树 - 平平安安的狗窝</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
 <link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
 <link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
 <link rel=icon href=/images/icons/favicon.ico>
 <link rel=manifest href=/zh-cn/manifest.json>
 <meta name=keywords content>
-<meta name=description content><meta itemprop=name content="Use Hugo With Github Page">
-<meta itemprop=description content="一直觉得自己总该写些什么，特别是在网上浏览别人的文档时，总会不自觉的被各种分享所吸引。 模糊中记得一句话，作为一个IT从业人员，重要的一点就是"><meta itemprop=datePublished content="2021-12-11T15:37:34+08:00">
-<meta itemprop=dateModified content="2021-12-11T15:37:34+08:00">
-<meta itemprop=wordCount content="1421">
-<meta itemprop=keywords content=","><meta property="og:title" content="Use Hugo With Github Page">
-<meta property="og:description" content="一直觉得自己总该写些什么，特别是在网上浏览别人的文档时，总会不自觉的被各种分享所吸引。 模糊中记得一句话，作为一个IT从业人员，重要的一点就是">
+<meta name=description content><meta itemprop=name content="查找-二叉树">
+<meta itemprop=description content="本文内容来自 Algorithhms 4th Edition 对于查找，第一个直觉就是先排序，然后再从中找到需要的对象。那么为什么要将查找和排序分开来呢，一个重要的原因是对于查找我们需"><meta itemprop=datePublished content="2022-01-26T17:25:17+08:00">
+<meta itemprop=dateModified content="2022-01-26T17:25:17+08:00">
+<meta itemprop=wordCount content="1813">
+<meta itemprop=keywords content="search,bst,"><meta property="og:title" content="查找-二叉树">
+<meta property="og:description" content="本文内容来自 Algorithhms 4th Edition 对于查找，第一个直觉就是先排序，然后再从中找到需要的对象。那么为什么要将查找和排序分开来呢，一个重要的原因是对于查找我们需">
 <meta property="og:type" content="article">
-<meta property="og:url" content="/zh-cn/guide/use-hugo-with-github-page/"><meta property="article:section" content="guide">
-<meta property="article:published_time" content="2021-12-11T15:37:34+08:00">
-<meta property="article:modified_time" content="2021-12-11T15:37:34+08:00"><meta property="og:site_name" content="平平安安的狗窝">
+<meta property="og:url" content="/zh-cn/guide/algo-search-bst/"><meta property="article:section" content="guide">
+<meta property="article:published_time" content="2022-01-26T17:25:17+08:00">
+<meta property="article:modified_time" content="2022-01-26T17:25:17+08:00"><meta property="og:site_name" content="平平安安的狗窝">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Use Hugo With Github Page">
-<meta name=twitter:description content="一直觉得自己总该写些什么，特别是在网上浏览别人的文档时，总会不自觉的被各种分享所吸引。 模糊中记得一句话，作为一个IT从业人员，重要的一点就是">
+<meta name=twitter:title content="查找-二叉树">
+<meta name=twitter:description content="本文内容来自 Algorithhms 4th Edition 对于查找，第一个直觉就是先排序，然后再从中找到需要的对象。那么为什么要将查找和排序分开来呢，一个重要的原因是对于查找我们需">
 <meta name=robots content="index, follow"><link rel=stylesheet href=/css/bundle.min.ebfc87f7f6580e36e6640d41143a700b9ec6f4ff8e30ac45c6fb67b65d4fc1c0.css integrity="sha256-6/yH9/ZYDjbmZA1BFDpwC57G9P+OMKxFxvtntl1PwcA=" crossorigin=anonymous>
 <noscript><link rel=stylesheet href=/css/bundle.min.ebfc87f7f6580e36e6640d41143a700b9ec6f4ff8e30ac45c6fb67b65d4fc1c0.css integrity="sha256-6/yH9/ZYDjbmZA1BFDpwC57G9P+OMKxFxvtntl1PwcA=" crossorigin=anonymous></noscript></head>
 <body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
@@ -41,10 +41,10 @@
 </button>
 </div>
 <div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=Use%20Hugo%20With%20Github%20Page&url=%2fzh-cn%2fguide%2fuse-hugo-with-github-page%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e6%9f%a5%e6%89%be-%e4%ba%8c%e5%8f%89%e6%a0%91&url=%2fzh-cn%2fguide%2falgo-search-bst%2f">
 <i class="fab fa-fw fa-twitter"></i> Twitter
 </a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fzh-cn%2fguide%2fuse-hugo-with-github-page%2f">
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fzh-cn%2fguide%2falgo-search-bst%2f">
 <i class="fab fa-fw fa-facebook-f"></i> Facebook
 </a>
 </div>
@@ -164,7 +164,7 @@
 <div class=col-lg-8>
 <div class=container><nav class="row card component" aria-label=breadcrumb>
 <div class=card-body>
-<ol class=breadcrumb><li class=breadcrumb-item><a href=/zh-cn/>主页</a></li><li class=breadcrumb-item><a href=/zh-cn/guide/>Guides</a></li><li class="breadcrumb-item active">Use Hugo With Github Page</li></ol>
+<ol class=breadcrumb><li class=breadcrumb-item><a href=/zh-cn/>主页</a></li><li class=breadcrumb-item><a href=/zh-cn/guide/>Guides</a></li><li class="breadcrumb-item active">查找-二叉树</li></ol>
 </div>
 </nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
 <div class="d-flex flex-column component rounded post-panel">
@@ -178,85 +178,81 @@
 </div>
 </div>
 <div class=card-header>
-<h1 class="card-title post-title">Use Hugo With Github Page
+<h1 class="card-title post-title">查找-二叉树
 </h1>
 </div>
 <div class=card-body><div class=post-meta>
-<span class=post-date title="创建于 2021-12-11 07:37:34 +0000 UTC。">
-2021-12-11
+<span class=post-date title="创建于 2022-01-26 09:25:17 +0000 UTC。">
+2022-01-26
 </span><span class=post-reading-time>
-3 分钟阅读
-</span><span class=post-taxonomies><a href=/zh-cn/categories/%E5%B7%A5%E5%85%B7/ class="badge rounded-pill post-taxonomy">工具</a></span>
+4 分钟阅读
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/search/ class="badge rounded-pill post-taxonomy">search</a><a href=/zh-cn/tags/bst/ class="badge rounded-pill post-taxonomy">bst</a></span>
 </div>
-<div class="post-content mb-3"><p>一直觉得自己总该写些什么，特别是在网上浏览别人的文档时，总会不自觉的被各种分享所吸引。 模糊中记得一句话，作为一个IT从业人员，重要的一点就是在网上留下自己的印记。好吧， 是否留下印记无所谓， 不过想想将来有一天翻看这些文档，犹如自己翻看曾经的日记，感觉也是挺美妙的。</p>
-<p>大概两年前就打算这样弄过， 但是懒总是阻碍人类前进的一大阻力。 在github上开通了git page, 写下自己的大名之后，时间就静止了，一晃两年过去。</p>
-<p>继续两年未竟之事业 —— 大约等于从头开始。</p>
-<h3 id=选择host>选择Host</h3>
-<p>当然是选择免费的，github提供了page。 如果是用码云的，似乎也有相应的page,道理类似。</p>
-<p>所谓git page, 是github为每个人保留了一个特殊的repo, 就是你的用户名+ github.io. 创建好这个repo, 例如我的 yaoyuqi.github.io. 在里面更新静态html, 就可以访问：如http://yaoyuqi.github.io</p>
-<h3 id=建站方式>建站方式</h3>
-<p>由于是静态页面，所以我们需要一个方案来将我们的文档有组织有结构的生成html。</p>
-<p>手写是不可能的，这辈子都不可能的。</p>
-<p>翻了翻，大约流行的是这三个jekyll, hexo, hugo. 这三个都是比较完整的框架，内置server, 也就是说可以运行后在本地通过浏览器访问本地的网页，同样也支持各种插件安装。最后生成需要上传的页面</p>
-<h4 id=简单比较>简单比较</h4>
-<table>
-<thead>
-<tr>
-<th>方案</th>
-<th>语言</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>jekyll</td>
-<td>Ruby</td>
-<td>应该很老牌，github默认建git page时就推荐用这个。 应该各种插件之类很全。 编译速度慢一点</td>
-</tr>
-<tr>
-<td>hexo</td>
-<td>Node</td>
-<td>用node搞的，好像是台湾的达人弄的，所以中文文档丰富</td>
-</tr>
-<tr>
-<td>hugo</td>
-<td>go</td>
-<td>编译速度快。 看了看文档页，目测文档数量是hexo的两倍 —— 复杂</td>
-</tr>
-</tbody>
-</table>
-<p>我本打算选用jekyll, 可以按照官方文档安装后运行报错， 搜了一下，应该是mac的m1芯片在调用sass的一个解析器时出错。对于这种错误，如果没有很快速的搜到解决方案，那就放弃，折腾起来太费时间</p>
-<p>——所以Jekylly被我放弃了。</p>
-<p>于是我拥抱了hugo</p>
-<h3 id=hugo构建>hugo构建</h3>
-<p>很简单</p>
-<ol>
-<li>将repo clone下来</li>
-<li>按照hugo文档安装。</li>
-<li>创建一个页面，运行<code>hugo server -D</code> ，即可在本地查看预览</li>
-<li>推送上去就能访问了</li>
-</ol>
-<p>突然发现我的这个guide很水。。。 😄😄😄😄</p>
-<p>其实最后一点不准确，推送上去是看不到刚才创建的文章的，甚至连网页都打不开，因为整个repo都变成了包含hugo的一整套库，git page是不认识的，记得吗，人家只认静态页面。</p>
-<p>我们推送的应该是hugo编译好的结果的文件。例如xxx.html/ xxx.js/ xxxx.cs</p>
-<p>这些文件在哪里呢？ 其实在public目录下，运行<code>hugo</code> 就会生成，因此我们要上传的其实是这个public文件夹。</p>
-<h3 id=更进一步>更进一步</h3>
-<p>参考hugo的部署文档，发现里面指导使用github的actions来发布。
-关于github的actions, 可以参考<a href=https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html target=_blank rel="noopener noreferrer">这篇文章</a>
+<div class="post-content mb-3"><blockquote>
+<p>本文内容来自 Algorithhms 4th Edition</p>
+</blockquote>
+<p>对于查找，第一个直觉就是先排序，然后再从中找到需要的对象。那么为什么要将查找和排序分开来呢，一个重要的原因是对于查找我们需要一种结构能够保证我们既找的快，有能够不因为插入/删除时耗费大量的时间。</p>
+<p>对于符号表(symbol-table)来说，二叉树(Binary Search Trea &ndash; BST)是一种理想的结构。</p>
+<h3 id=定义>定义</h3>
+<p>二叉查询树是一种二叉树，其每个节点包含有一个可比较的（Comparable）键值，并且规定任何一个节点的值都比其左子树的值大，比其右子树的值小。</p>
+<p><img class=img-fluid alt=bst src=/zh-cn/guide/algo-search-bst/images/bst.png loading=lazy width=346 height=274>
 </p>
-<p>简单的说，这个actions就类似jenkins, github提供了一些虚拟机环境，你可以通过配置脚本在执行一些操作。</p>
-<p>以我们发布文章来说，我们需要当提交整个repo后，github能够帮我们编译生成静态页面，然后将其放到我们git page的页面里。
-这里再说一下，github为这类提供了一个专用分支，gh-page, 也就是说按照部署文档来最后我们可以看到repo多了一个gh-page分支，里面就是public的内容。</p>
-<p>使用github的actions很单间，就是在repo下创建一个.workflows目录，再放一个xx.yml，这个xx.yml就是配置文件。每次提交，github就会触发这个action</p>
-<p>万事具备，于是这篇文章就诞生了。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln> 1</span><span class=kd>private</span> <span class=kd>class</span> <span class=nc>Node</span> <span class=o>{</span>
+<span class=ln> 2</span>        <span class=kd>private</span> <span class=kd>final</span> <span class=n>Key</span> <span class=n>key</span><span class=o>;</span>
+<span class=ln> 3</span>        <span class=kd>private</span> <span class=n>Value</span> <span class=n>value</span><span class=o>;</span>
+<span class=ln> 4</span>        <span class=kd>private</span> <span class=n>Node</span> <span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>;</span>
+<span class=ln> 5</span>        <span class=kd>private</span> <span class=kt>int</span> <span class=n>n</span><span class=o>;</span>
+<span class=ln> 6</span>
+<span class=ln> 7</span>        <span class=kd>public</span> <span class=nf>Node</span><span class=o>(</span><span class=n>Key</span> <span class=n>key</span><span class=o>,</span> <span class=n>Value</span> <span class=n>value</span><span class=o>,</span> <span class=kt>int</span> <span class=n>n</span><span class=o>)</span> <span class=o>{</span>
+<span class=ln> 8</span>            <span class=k>this</span><span class=o>.</span><span class=na>key</span> <span class=o>=</span> <span class=n>key</span><span class=o>;</span>
+<span class=ln> 9</span>            <span class=k>this</span><span class=o>.</span><span class=na>value</span> <span class=o>=</span> <span class=n>value</span><span class=o>;</span>
+<span class=ln>10</span>            <span class=k>this</span><span class=o>.</span><span class=na>n</span> <span class=o>=</span> <span class=n>n</span><span class=o>;</span>
+<span class=ln>11</span>        <span class=o>}</span>
+<span class=ln>12</span>    <span class=o>}</span>
+</code></pre></div><p>要注意的一点： n 记录了当前节点下子节点的数量(包含自身), 因此对于节点x, 其size的公式为</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln>1</span><span class=n>size</span><span class=o>(</span><span class=n>x</span><span class=o>)</span> <span class=o>=</span> <span class=n>size</span><span class=o>(</span><span class=n>x</span><span class=o>.</span><span class=na>left</span><span class=o>)</span> <span class=o>+</span> <span class=n>size</span><span class=o>(</span><span class=n>x</span><span class=o>.</span><span class=na>right</span><span class=o>)</span> <span class=o>+</span> <span class=n>1</span><span class=o>;</span>
+</code></pre></div><p>n的用处在于我们可以通过x.left.n知道当前节点在整个序列中的位置，这对于实现rank等方法非常有用。</p>
+<h3 id=搜索>搜索</h3>
+<p>二叉查询树的搜索是很直观的，通过递归的方式很好理解：将要查找的key和当前节点的key比较，如果小，则继续在左子树中查询，如果大，则在右子树中查询，如果相等则命中。如果左/右子树为空，则未命中。
+如果在整个树中包含某个值，则称为命中（search hit）, 否则叫未命中(search miss)</p>
+<h3 id=插入>插入</h3>
+<p>插入同样很简单，从根开始不断向下走（小就走左边，大就走右边），知道走到底部，将节点插入到底部节点的下面就可以了。
+这里要注意一下递归： 跟搜索一样，插入也同样使用了递归。我们不断使用递归走到目标所在之处，对于搜索来说，此时我们返回结果，每层递归将传递过来的结果返回出去。但是插入不一样，我们需要更新我们的子树，同时更新我们的节点数n。</p>
+<h3 id=分析>分析</h3>
+<p>二叉树的查找时间依赖于树的形状，也就是说依赖于输入的顺序。</p>
+<p><img class=img-fluid alt=bst-possibilities src=/zh-cn/guide/algo-search-bst/images/bst-possibilities.png loading=lazy width=236 height=523>
+</p>
+<p>当二叉树是完全平衡的，那么其高度大约为～lgN, 在最坏的情况下，其高度为N, 通常情况下，树的形状还是比较接近平衡的。
+在许多应用中，我们认为其输入都是随机的，那么分析BST就近似于我们分析QuickSort. 树的根就如同QS中的第一次分段，由此我们得出如下推论：</p>
+<p><strong>Proposition C: 对于随机的N个输入构造的BST, 查找命中平均大约需要～2lnN(也就是1.39lgN)次比较。</strong>
+<strong>Proposition D: 插入或者查找未命中对于随机的N个输入构造的BST平均大约需要～2lnN(也就是1.39lgN)次比较</strong></p>
+<h3 id=跟顺序有关的其他方法以及删除>跟顺序有关的其他方法以及删除</h3>
+<p>BST最重要的特征就是就是允许我们按键值的顺序保存，因此也就提供许多需要基于顺序的方法</p>
+<h4 id=最大最小值>最大/最小值</h4>
+<h4 id=floor-ceiling>Floor /Ceiling</h4>
+<p>对于Floor，我们递归的比较key与当前节点的键值，如果小于节点，那么在左子树中继续查找，如果相当，那就是这个节点，如果比节点大，那么我们就需要去右子树找，此时存在一种情况，如果右子树中找不到比key小的值，那这个节点就是返回值
+Ceiling类似</p>
+<h3 id=select>select</h3>
+<p>select 就是查找指定位置的节点。 此时我们就需要利用节点中n的信息。 由于一个节点所处的位置等于其左子树的n + 1, 所以我们将指定的值与左子树的n值比较，如果小，那么继续在左子树的查找，如果大，那么我们转而查找右子树，由于左边已经有n个元素了，所以其实我们在右子树中查找k -n - 1位置的元素。以此类推</p>
+<h3 id=rank>rank</h3>
+<p>rank 查找元素的排名，仍然是递归的方式，如果key比当前节点小，那么在左子树去查找，如果相当，那么排名就等于小size(x.left), 如果大，那么其排名就是size(x.left) + 其在右子树的排名 + 1
+注意一点，rank是从0开始的，而我们的节点的n默认是1（包含自己），所以一个节点的rank就是x.left</p>
+<h3 id=删除最大最小节点>删除最大/最小节点</h3>
+<p>删除最小节点是为删除任意节点做准备。 要删除最小节点思路很简单，不断在左子树中找到左子树为空的节点即可。删除时，用该节点的右子树来代替该节点。</p>
+<h3 id=删除任意节点>删除任意节点</h3>
+<p><img class=img-fluid alt=delete-bst src=/zh-cn/guide/algo-search-bst/images/delete-bst.png loading=lazy width=325 height=787>
+</p>
+<p>删除节点仍然是通过递归先查找该节点。 删除时思路为用该节点右子树的最小节点来代替该节点，所以我们找到其右子树最小节点后问题转化为删除右子树的最小节点。</p>
+<p><strong>Proposition E: 对于BST, 在最坏的情况下，任何操作所需要的时间跟树的高度成正比。</strong></p>
+<h3 id=总结>总结</h3>
+<p>BST实现比较容易，同时如果输入时比较随机的话能够提供很好的查询和插入效率。同时BST也提供了快速的rank, select, delete ,range query等方法，因此也受到欢迎。同时也要强调，其性能深受输入顺序的影响，在比较坏的情况下可能无法达成预期。 与快速排序比较，我们可以在快速排序前对数组先做一次随机操作，但是对于symbol table, 我们没办法这样做。</p>
+<p>因此我们需要引入平衡二叉树。
+<img class=img-fluid alt=bst-performance src=/zh-cn/guide/algo-search-bst/images/bst-performance.png loading=lazy width=905 height=394>
+</p>
 </div><hr><div class="post-navs d-flex mb-3 justify-content-evenly">
 <div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
-<a href=/zh-cn/posts/my-first-post/>My First Post
+<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
 </a>
-</div><div class="post-nav post-next">
-<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
-</a>
-<i class="fas fa-fw fa-chevron-right"></i>
 </div></div></div>
 </article><section class="related-posts row card component">
 <div class=card-header>
@@ -264,24 +260,29 @@
 </div>
 <div class=card-body>
 <ul class=post-list><li>
+<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
+</a>
+<span class="float-end post-date">2022-01-13
+</span>
+</li><li>
+<a href=/zh-cn/guide/algo-sort-mergesort/>排序-合并排序
+</a>
+<span class="float-end post-date">2022-01-12
+</span>
+</li><li>
+<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
+</a>
+<span class="float-end post-date">2022-01-10
+</span>
+</li><li>
+<a href=/zh-cn/guide/use-hugo-with-github-page/>Use Hugo With Github Page
+</a>
+<span class="float-end post-date">2021-12-11
+</span>
+</li><li>
 <a href=/zh-cn/posts/my-first-post/>My First Post
 </a>
 <span class="float-end post-date">2021-12-09
-</span>
-</li><li>
-<a href=/zh-cn/about/>About
-</a>
-<span class="float-end post-date">2021-12-09
-</span>
-</li><li>
-<a href=/zh-cn/contact/>Contact Me
-</a>
-<span class="float-end post-date">0001-01-01
-</span>
-</li><li>
-<a href=/zh-cn/offline/>Offline
-</a>
-<span class="float-end post-date">0001-01-01
 </span>
 </li></ul>
 </div>

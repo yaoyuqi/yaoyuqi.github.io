@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-cn data-mode=light>
+<!doctype html><html lang=zh-cn>
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
@@ -70,6 +70,18 @@
 </form>
 </section>
 <section class=setting>
+<form class=row>
+<div class=col-auto>
+<label><i class="fas fa-fw fa-adjust"></i> 模式</label>
+</div>
+<div class="col-auto ms-auto">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox id=modeSwitcher>
+</div>
+</div>
+</form>
+</section>
+<section class=setting>
 <form class="font-size-switcher-form row">
 <div class=col-auto>
 <label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> 字体大小</label>
@@ -91,6 +103,17 @@
 </div>
 </form>
 <div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=蓝色 class="btn btn-sm palette" data-palette=blue>
+</button><button type=button id=palette-blue-gray aria-label=蓝灰色 class="btn btn-sm palette" data-palette=blue-gray>
+</button><button type=button id=palette-brown aria-label=棕色 class="btn btn-sm palette" data-palette=brown>
+</button><button type=button id=palette-cyan aria-label=青色 class="btn btn-sm palette" data-palette=cyan>
+</button><button type=button id=palette-green aria-label=绿色 class="btn btn-sm palette" data-palette=green>
+</button><button type=button id=palette-indigo aria-label=靛青色 class="btn btn-sm palette" data-palette=indigo>
+</button><button type=button id=palette-orange aria-label=橙色 class="btn btn-sm palette" data-palette=orange>
+</button><button type=button id=palette-pink aria-label=粉色 class="btn btn-sm palette" data-palette=pink>
+</button><button type=button id=palette-purple aria-label=紫色 class="btn btn-sm palette" data-palette=purple>
+</button><button type=button id=palette-red aria-label=红色 class="btn btn-sm palette" data-palette=red>
+</button><button type=button id=palette-teal aria-label=蓝绿色 class="btn btn-sm palette" data-palette=teal>
+</button><button type=button id=palette-yellow aria-label=黄色 class="btn btn-sm palette" data-palette=yellow>
 </button></div>
 </section>
 <section class="setting actions d-flex justify-content-center mt-auto">
@@ -126,35 +149,6 @@
 <a class=nav-link href=/zh-cn/series/>
 <i class="fas fa-fw fa-columns"></i>Series
 </a>
-</li><li class="nav-item dropdown">
-<a class=nav-link id=navbarDropdownSupport role=button data-bs-toggle=dropdown aria-expanded=false>
-<i class="fas fa-fw fa-chevron-circle-down"></i>Support
-</a>
-<ul class=dropdown-menu aria-labelledby=navbarDropdownSupport><li>
-<a class=dropdown-item href=https://github.com/razonyang/hugo-theme-bootstrap target=_blank rel="noopener noreferrer">
-Repository
-</a>
-</li><li>
-<a class=dropdown-item href=https://github.com/razonyang/hugo-theme-bootstrap/discussions/new target=_blank rel="noopener noreferrer">
-Discussions
-</a>
-</li><li>
-<a class=dropdown-item href="https://github.com/razonyang/hugo-theme-bootstrap/issues/new?template=feature_request.md" target=_blank rel="noopener noreferrer">
-Features Request
-</a>
-</li><li>
-<a class=dropdown-item href="https://github.com/razonyang/hugo-theme-bootstrap/issues/new?template=bug_report.md" target=_blank rel="noopener noreferrer">
-Bug Report
-</a>
-</li><li><hr class=dropdown-divider></li><li>
-<a class=dropdown-item href=https://hbs.razonyang.com target=_blank rel="noopener noreferrer">
-Demo(Netlify)
-</a>
-</li><li>
-<a class=dropdown-item href=https://hbs-cn.razonyang.com target=_blank rel="noopener noreferrer">
-Demo(China)
-</a>
-</li></ul>
 </li></ul>
 </div>
 </div>
@@ -169,7 +163,61 @@ Demo(China)
 </div>
 </nav><div class="posts mb-4"><article class="row card post component"><div class=card-header>
 <h2 class="card-title post-title">
-<a href=/zh-cn/guide/algo-sort-1/>排序-基本排序
+<a href=/zh-cn/guide/algo-search-bst/>查找-二叉树
+</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=post-meta>
+<span class=post-date title="创建于 2022-01-26 09:25:17 +0000 UTC。">
+2022-01-26
+</span><span class=post-reading-time>
+4 分钟阅读
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/search/ class="badge rounded-pill post-taxonomy">search</a><a href=/zh-cn/tags/bst/ class="badge rounded-pill post-taxonomy">bst</a></span>
+</div>
+<div class=post-summary>
+本文内容来自 Algorithhms 4th Edition 对于查找，第一个直觉就是先排序，然后再从中找到需要的对象。那么为什么要将查找和排序分开来呢，一个重要的原因是对于查找我们需
+</div>
+</div>
+</article><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
+</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=post-meta>
+<span class=post-date title="创建于 2022-01-13 02:05:55 +0000 UTC。">
+2022-01-13
+</span><span class=post-reading-time>
+1 分钟阅读
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sort/ class="badge rounded-pill post-taxonomy">sort</a></span>
+</div>
+<div class=post-summary>
+本文内容来自 Algorithhms 4th Edition 快排由于实现起来简单，对各种类型的数据都有效，比大多数排序算法都效率高，因此可能是使用最广泛的排序算法。快排的两个显著特征
+</div>
+</div>
+</article><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/zh-cn/guide/algo-sort-mergesort/>排序-合并排序
+</a>
+</h2>
+</div>
+<div class=card-body>
+<div class=post-meta>
+<span class=post-date title="创建于 2022-01-12 07:03:34 +0000 UTC。">
+2022-01-12
+</span><span class=post-reading-time>
+4 分钟阅读
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sort/ class="badge rounded-pill post-taxonomy">sort</a></span>
+</div>
+<div class=post-summary>
+本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各
+</div>
+</div>
+</article><article class="row card post component"><div class=card-header>
+<h2 class="card-title post-title">
+<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
 </a>
 </h2>
 </div>
@@ -179,7 +227,7 @@ Demo(China)
 2022-01-10
 </span><span class=post-reading-time>
 7 分钟阅读
-</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sorting/ class="badge rounded-pill post-taxonomy">sorting</a></span>
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sort/ class="badge rounded-pill post-taxonomy">sort</a></span>
 </div>
 <div class=post-summary>
 本文内容来自 Algorithhms 4th Edition 前言 排序就是将对象按照一定的顺序排列。据统计，大约有30%的运算都是排序。 有三个理由让我们需要研究排序： 研究排序算法是我们
@@ -220,7 +268,22 @@ Demo(China)
 </div>
 <div class=card-body>
 <ul class=post-list><li>
-<a href=/zh-cn/guide/algo-sort-1/>排序-基本排序
+<a href=/zh-cn/guide/algo-search-bst/>查找-二叉树
+</a>
+<span class="float-end post-date">2022-01-26
+</span>
+</li><li>
+<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
+</a>
+<span class="float-end post-date">2022-01-13
+</span>
+</li><li>
+<a href=/zh-cn/guide/algo-sort-mergesort/>排序-合并排序
+</a>
+<span class="float-end post-date">2022-01-12
+</span>
+</li><li>
+<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
 </a>
 <span class="float-end post-date">2022-01-10
 </span>
@@ -238,10 +301,10 @@ Demo(China)
 </h2>
 </div>
 <div class=card-body>
-<div class=py-2><a href=/zh-cn/categories/%E5%B7%A5%E5%85%B7/ class="badge rounded post-taxonomy" title=工具>
-工具
-</a><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded post-taxonomy" title=算法>
+<div class=py-2><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded post-taxonomy" title=算法>
 算法
+</a><a href=/zh-cn/categories/%E5%B7%A5%E5%85%B7/ class="badge rounded post-taxonomy" title=工具>
+工具
 </a></div>
 </div>
 </section><section class="taxonomies row card component">
@@ -251,8 +314,12 @@ Demo(China)
 </h2>
 </div>
 <div class=card-body>
-<div class=py-2><a href=/zh-cn/tags/sorting/ class="badge rounded post-taxonomy" title=sorting>
-sorting
+<div class=py-2><a href=/zh-cn/tags/sort/ class="badge rounded post-taxonomy" title=sort>
+sort
+</a><a href=/zh-cn/tags/bst/ class="badge rounded post-taxonomy" title=bst>
+bst
+</a><a href=/zh-cn/tags/search/ class="badge rounded post-taxonomy" title=search>
+search
 </a></div>
 </div>
 </section>
