@@ -1,113 +1,13 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<title>排序-合并排序 - 平平安安的狗窝</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180>
-<link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png>
-<link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png>
-<link rel=icon href=/images/icons/favicon.ico>
-<link rel=manifest href=/zh-cn/manifest.json>
-<meta name=keywords content>
-<meta name=description content><meta itemprop=name content="排序-合并排序">
-<meta itemprop=description content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各"><meta itemprop=datePublished content="2022-01-12T15:03:34+08:00">
-<meta itemprop=dateModified content="2022-01-12T15:03:34+08:00">
-<meta itemprop=wordCount content="1527">
-<meta itemprop=keywords content="sort,"><meta property="og:title" content="排序-合并排序">
-<meta property="og:description" content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各">
-<meta property="og:type" content="article">
-<meta property="og:url" content="/zh-cn/guide/algo-sort-mergesort/"><meta property="article:section" content="guide">
-<meta property="article:published_time" content="2022-01-12T15:03:34+08:00">
-<meta property="article:modified_time" content="2022-01-12T15:03:34+08:00"><meta property="og:site_name" content="平平安安的狗窝">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="排序-合并排序">
-<meta name=twitter:description content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各">
-<meta name=robots content="index, follow"><link rel=stylesheet href=/css/bundle.min.ebfc87f7f6580e36e6640d41143a700b9ec6f4ff8e30ac45c6fb67b65d4fc1c0.css integrity="sha256-6/yH9/ZYDjbmZA1BFDpwC57G9P+OMKxFxvtntl1PwcA=" crossorigin=anonymous>
-<noscript><link rel=stylesheet href=/css/bundle.min.ebfc87f7f6580e36e6640d41143a700b9ec6f4ff8e30ac45c6fb67b65d4fc1c0.css integrity="sha256-6/yH9/ZYDjbmZA1BFDpwC57G9P+OMKxFxvtntl1PwcA=" crossorigin=anonymous></noscript></head>
-<body><script>const items=['mode','palette'];items.forEach(function(a){const b=localStorage.getItem('hbs-'+a);b&&document.body.parentElement.setAttribute('data-'+a,b)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top">
-<div class=container>
-<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>排序-合并排序 - 平平安安的狗窝</title><link rel=apple-touch-icon href=/images/icons/icon-180x180.png sizes=180x180><link rel=icon href=/images/icons/icon-32x32.png sizes=32x32 type=image/png><link rel=icon href=/images/icons/icon-16x16.png sizes=16x16 type=image/png><link rel=icon href=/images/icons/favicon.ico><link rel=manifest href=/zh-cn/manifest.json><meta name=keywords content><meta name=description content><meta itemprop=name content="排序-合并排序"><meta itemprop=description content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各"><meta itemprop=datePublished content="2022-01-12T15:03:34+08:00"><meta itemprop=dateModified content="2022-01-12T15:03:34+08:00"><meta itemprop=wordCount content="1526"><meta itemprop=keywords content="sort,"><meta property="og:title" content="排序-合并排序"><meta property="og:description" content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各"><meta property="og:type" content="article"><meta property="og:url" content="/zh-cn/guide/algo-sort-mergesort/"><meta property="article:section" content="guide"><meta property="article:published_time" content="2022-01-12T15:03:34+08:00"><meta property="article:modified_time" content="2022-01-12T15:03:34+08:00"><meta property="og:site_name" content="平平安安的狗窝"><meta name=twitter:card content="summary"><meta name=twitter:title content="排序-合并排序"><meta name=twitter:description content="本文内容来自 Algorithhms 4th Edition 实现 这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。 因此合并排序简单来说就是将一个数组分成两半，递归的将两半各"><meta name=robots content="index, follow"><link rel=stylesheet href=/css/bundle.min.5cabf2204a83f812b92e278db6f479208a02dd0cd1472ad4b8c72cfdbbd9b489.css integrity="sha256-XKvyIEqD+BK5LieNtvR5IIoC3QzRRyrUuMcs/bvZtIk=" crossorigin=anonymous><noscript><link rel=stylesheet href=/css/bundle.min.5cabf2204a83f812b92e278db6f479208a02dd0cd1472ad4b8c72cfdbbd9b489.css integrity="sha256-XKvyIEqD+BK5LieNtvR5IIoC3QzRRyrUuMcs/bvZtIk=" crossorigin=anonymous></noscript></head><body><script>const items=["mode","palette"];items.forEach(function(e){const t=localStorage.getItem("hbs-"+e);t&&document.body.parentElement.setAttribute("data-"+e,t)})</script><header><nav class="navbar top-app-bar top-app-bar-expand-lg fixed-top"><div class=container><button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarSupportedContent aria-controls=navbarSupportedContent aria-expanded=false aria-label="Toggle navigation">
 <i class="fas fa-bars"></i>
 </button><a class="navbar-brand me-3" href=/zh-cn/><img class=logo alt=Logo src=/images/logo.webp loading=lazy width=136 height=69>
-平平安安的狗窝
-</a>
+平平安安的狗窝</a>
 <button class=navbar-social-share type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSocialShare aria-controls=offcanvasSocialShare aria-label="Toggle social share">
-<i class="fas fa-share-alt"></i>
-</button>
-<div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare>
-<div class=offcanvas-header>
-<h3 class=offcanvas-title>Share</h3>
-<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
-<i class="fas fa-times"></i>
-</button>
-</div>
-<div class=offcanvas-body>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e6%8e%92%e5%ba%8f-%e5%90%88%e5%b9%b6%e6%8e%92%e5%ba%8f&url=%2fzh-cn%2fguide%2falgo-sort-mergesort%2f">
-<i class="fab fa-fw fa-twitter"></i> Twitter
-</a>
-<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fzh-cn%2fguide%2falgo-sort-mergesort%2f">
-<i class="fab fa-fw fa-facebook-f"></i> Facebook
-</a>
-</div>
-</div>
-<button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
-<i class="fas fa-ellipsis-v"></i>
-</button>
-<div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings>
-<div class=offcanvas-header>
-<h3 class=offcanvas-title>设置</h3>
-<button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
-<i class="fas fa-times"></i>
-</button>
-</div>
-<div class="offcanvas-body d-flex flex-column"><section class=setting>
-<form class=row>
-<div class=col-auto>
-<label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> 语言</label>
-</div>
-<div class="col-auto ms-auto">
-<div class=dropdown>
-<a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>
-简体中文
-</a>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/en/>English</a></li></ul>
-</div>
-</div>
-</form>
-</section>
-<section class=setting>
-<form class=row>
-<div class=col-auto>
-<label><i class="fas fa-fw fa-adjust"></i> 模式</label>
-</div>
-<div class="col-auto ms-auto">
-<div class="form-check form-switch">
-<input class=form-check-input type=checkbox id=modeSwitcher>
-</div>
-</div>
-</form>
-</section>
-<section class=setting>
-<form class="font-size-switcher-form row">
-<div class=col-auto>
-<label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> 字体大小</label>
-</div>
-<div class="col-auto ms-auto">
-<input type=range class=form-range min=-2 max=2 id=fontSize>
-</div>
-</form>
-</section>
-<section class="setting palettes">
-<form class=row>
-<div class=col-auto>
-<label><i class="fas fa-fw fa-palette"></i> 配色</label>
-</div>
-<div class="col-auto ms-auto">
-<a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker>
-<i class="fas fa-eye-dropper"></i>
-</a>
-</div>
-</form>
-<div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=蓝色 class="btn btn-sm palette" data-palette=blue>
+<i class="fas fa-share-alt"></i></button><div class="offcanvas offcanvas-bottom surface" tabindex=-1 id=offcanvasSocialShare aria-labelledby=offcanvasSocialShare><div class=offcanvas-header><h3 class=offcanvas-title>Share</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class=offcanvas-body><a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Twitter Share Button" target=_blank href="https://twitter.com/intent/tweet?title=%e6%8e%92%e5%ba%8f-%e5%90%88%e5%b9%b6%e6%8e%92%e5%ba%8f&url=%2fzh-cn%2fguide%2falgo-sort-mergesort%2f"><i class="fab fa-fw fa-twitter"></i> Twitter</a>
+<a class="btn btn-sm btn-outline-primary social-share-button" rel="noopener noreferrer" aria-label="Facebook Share Button" target=_blank href="https://www.facebook.com/sharer/sharer.php?u=%2fzh-cn%2fguide%2falgo-sort-mergesort%2f"><i class="fab fa-fw fa-facebook-f"></i> Facebook</a></div></div><button class=navbar-settings type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasSettings aria-controls=offcanvasSettings aria-label="Toggle settings">
+<i class="fas fa-ellipsis-v"></i></button><div class="offcanvas offcanvas-end surface h-100" tabindex=-1 id=offcanvasSettings aria-labelledby=offcanvasSettings><div class=offcanvas-header><h3 class=offcanvas-title>设置</h3><button type=button class="btn btn-sm btn-outline-primary" data-bs-dismiss=offcanvas aria-label=Close>
+<i class="fas fa-times"></i></button></div><div class="offcanvas-body d-flex flex-column"><section class=setting><form class=row><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-language"></i> 语言</label></div><div class="col-auto ms-auto"><div class=dropdown><a class="btn btn-sm btn-outline-primary dropdown-toggle" href=# id=languageDropdown role=button data-bs-toggle=dropdown aria-expanded=false>简体中文</a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby=languageDropdown><li><a class=dropdown-item href=/en/>English</a></li></ul></div></div></form></section><section class=setting><form class=row><div class=col-auto><label><i class="fas fa-fw fa-adjust"></i> 模式</label></div><div class="col-auto ms-auto"><div class="form-check form-switch"><input class=form-check-input type=checkbox id=modeSwitcher></div></div></form></section><section class=setting><form class="font-size-switcher-form row"><div class=col-auto><label for=fontSize class=form-label><i class="fas fa-fw fa-font"></i> 字体大小</label></div><div class="col-auto ms-auto"><input type=range class=form-range min=-2 max=2 id=fontSize></div></form></section><section class="setting palettes"><form class=row><div class=col-auto><label><i class="fas fa-fw fa-palette"></i> 配色</label></div><div class="col-auto ms-auto"><a id=btnPalette class="btn btn-sm btn-outline-primary" role=button aria-label=palettePicker><i class="fas fa-eye-dropper"></i></a></div></form><div class="mt-2 d-flex visually-hidden" id=palettePicker><button type=button id=palette-blue aria-label=蓝色 class="btn btn-sm palette" data-palette=blue>
 </button><button type=button id=palette-blue-gray aria-label=蓝灰色 class="btn btn-sm palette" data-palette=blue-gray>
 </button><button type=button id=palette-brown aria-label=棕色 class="btn btn-sm palette" data-palette=brown>
 </button><button type=button id=palette-cyan aria-label=青色 class="btn btn-sm palette" data-palette=cyan>
@@ -118,254 +18,47 @@
 </button><button type=button id=palette-purple aria-label=紫色 class="btn btn-sm palette" data-palette=purple>
 </button><button type=button id=palette-red aria-label=红色 class="btn btn-sm palette" data-palette=red>
 </button><button type=button id=palette-teal aria-label=蓝绿色 class="btn btn-sm palette" data-palette=teal>
-</button><button type=button id=palette-yellow aria-label=黄色 class="btn btn-sm palette" data-palette=yellow>
-</button></div>
-</section>
-<section class="setting actions d-flex justify-content-center mt-auto">
-<a role=button class="action action-reload-page">
-<span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> 刷新
-</a>
-<a role=button class="action action-copy-url">
-<span class=action-icon><i class="fas fa-2x fa-link"></i></span> 复制链接
-</a>
-</section>
-</div>
-</div>
-<div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent>
-<form class="search-bar my-1" action=/zh-cn/search>
-<div class="input-group input-group-sm">
-<span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
-<input class="form-control rounded-pill" name=q type=search aria-label=Search>
-</div>
-</form>
-<ul class="navbar-nav ms-auto"><li class=nav-item>
-<a class=nav-link href=/zh-cn/archives/>
-<i class="fas fa-fw fa-file-archive"></i>Archives
-</a>
-</li><li class=nav-item>
-<a class=nav-link href=/zh-cn/categories/>
-<i class="fas fa-fw fa-folder"></i>Categories
-</a>
-</li><li class=nav-item>
-<a class=nav-link href=/zh-cn/tags/>
-<i class="fas fa-fw fa-tags"></i>Tags
-</a>
-</li><li class=nav-item>
-<a class=nav-link href=/zh-cn/series/>
-<i class="fas fa-fw fa-columns"></i>Series
-</a>
-</li></ul>
-</div>
-</div>
-</nav>
-</header>
-<main role=main class=container>
-<div class="row content">
-<div class=col-lg-8>
-<div class=container><nav class="row card component" aria-label=breadcrumb>
-<div class=card-body>
-<ol class=breadcrumb><li class=breadcrumb-item><a href=/zh-cn/>主页</a></li><li class=breadcrumb-item><a href=/zh-cn/guide/>Guides</a></li><li class="breadcrumb-item active">排序-合并排序</li></ol>
-</div>
-</nav><article class="row card component mb-4 post"><div class=post-panel-wrapper>
-<div class="d-flex flex-column component rounded post-panel">
-<a id=sidebarToggler class="action d-none d-lg-block" role=button>
-<i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i>
-</a>
+</button><button type=button id=palette-yellow aria-label=黄色 class="btn btn-sm palette" data-palette=yellow></button></div></section><section class="setting actions d-flex justify-content-center mt-auto"><a role=button class="action action-reload-page"><span class=action-icon><i class="fas fa-2x fa-redo-alt"></i></span> 刷新</a>
+<a role=button class="action action-copy-url"><span class=action-icon><i class="fas fa-2x fa-link"></i></span> 复制链接</a></section></div></div><div class="collapse navbar-collapse" tabindex=-1 id=navbarSupportedContent aria-labelledby=navbarSupportedContent><form class="search-bar my-1" action=/zh-cn/search><div class="input-group input-group-sm"><span class="btn btn-search disabled position-absolute left-0"><i class="fas fa-fw fa-search"></i></span>
+<input class="form-control rounded-pill" name=q type=search aria-label=Search></div></form><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/zh-cn/archives/><i class="fas fa-fw fa-file-archive"></i>归档</a></li><li class=nav-item><a class=nav-link href=/zh-cn/categories/><i class="fas fa-fw fa-folder"></i>分类</a></li><li class=nav-item><a class=nav-link href=/zh-cn/tags/><i class="fas fa-fw fa-tags"></i>标签</a></li><li class=nav-item><a class=nav-link href=/zh-cn/series/><i class="fas fa-fw fa-columns"></i>专栏</a></li></ul></div></div></nav></header><main role=main class=container><div class="row content"><div class=col-lg-8><div class=container><nav class="row card component" aria-label=breadcrumb><div class=card-body><ol class=breadcrumb><li class=breadcrumb-item><a href=/zh-cn/>主页</a></li><li class=breadcrumb-item><a href=/zh-cn/guide/>Guides</a></li><li class="breadcrumb-item active">排序-合并排序</li></ol></div></nav><article class="row card component mb-4 post"><div class=post-panel-wrapper><div class="d-flex flex-column component rounded post-panel"><a id=sidebarToggler class="action d-none d-lg-block" role=button><i class="fas fa-fw fa-expand-alt" data-fa-transform=rotate-45></i></a>
 <a class=action data-bs-container=body data-bs-toggle=popover data-bs-html=true data-bs-placement=bottom data-bs-trigger=focus tabindex=0 role=button aria-label=Copyright data-bs-content='<a target="_blank" rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">CC BY-NC-ND 4.0 <i class="fab fa-fw fa-creative-commons"></i><i class="fab fa-fw fa-creative-commons-by"></i><i class="fab fa-fw fa-creative-commons-nc"></i><i class="fab fa-fw fa-creative-commons-nd"></i></a>
-'>
-<i class="fas fa-fw fa-copyright"></i>
-</a>
-</div>
-</div>
-<div class=card-header>
-<h1 class="card-title post-title">排序-合并排序
-</h1>
-</div>
-<div class=card-body><div class=post-meta>
-<span class=post-date title="创建于 2022-01-12 07:03:34 +0000 UTC。">
-2022-01-12
-</span><span class=post-reading-time>
-4 分钟阅读
-</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sort/ class="badge rounded-pill post-taxonomy">sort</a></span>
-</div>
-<div class="post-content mb-3"><blockquote>
-<p>本文内容来自 Algorithhms 4th Edition</p>
-</blockquote>
-<h3 id=实现>实现</h3>
-<p>这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。
-因此合并排序简单来说就是将一个数组分成两半，递归的将两半各自排好序，再将其合并成一个大的数组。 合并排序最重要的一个特点就是能保证执行时间是NlogN。缺点是需要跟N成比例的额外的空间。</p>
-<p>要实现合并排序，最直接的就是实现将两个数组合并成一个数组的方法：额外创建一个数组，从两个数组中不断取最小的对象放到这个存放数组中。
-当要对一个大数组进行合并排序时，我们需要做大量的合并操作，因此每次创建新数组去保存结果也是一笔不小的开销。因此，如果能够直接在数组上操作，可以大大减小开销————想起来很简单，实现起来很复杂，特别是跟用额外数组做合并的方式比较起来的话。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=ln> 1</span><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>merge</span><span class=o>(</span><span class=n>Comparable</span><span class=o>[]</span> <span class=n>a</span><span class=o>,</span> <span class=kt>int</span> <span class=n>lo</span><span class=o>,</span> <span class=kt>int</span> <span class=n>mid</span><span class=o>,</span> <span class=kt>int</span> <span class=n>hi</span><span class=o>)</span> <span class=o>{</span> 
-<span class=ln> 2</span>    <span class=c1>// Merge a[lo..mid] with a[mid+1..hi].
-</span><span class=ln> 3</span><span class=c1></span>    <span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>lo</span><span class=o>,</span> <span class=n>j</span> <span class=o>=</span> <span class=n>mid</span><span class=o>+</span><span class=n>1</span><span class=o>;</span>
-<span class=ln> 4</span>    <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=n>lo</span><span class=o>;</span> <span class=n>k</span> <span class=o>&lt;=</span> <span class=n>hi</span><span class=o>;</span> <span class=n>k</span><span class=o>++)</span> <span class=c1>// Copy a[lo..hi] to aux[lo..hi].
-</span><span class=ln> 5</span><span class=c1></span>        <span class=n>aux</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>];</span>
-<span class=ln> 6</span>
-<span class=ln> 7</span>    <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=n>lo</span><span class=o>;</span> <span class=n>k</span> <span class=o>&lt;=</span> <span class=n>hi</span><span class=o>;</span> <span class=n>k</span><span class=o>++)</span> <span class=c1>// Merge back to a[lo..hi].
-</span><span class=ln> 8</span><span class=c1></span>        <span class=k>if</span> <span class=o>(</span><span class=n>i</span> <span class=o>&gt;</span> <span class=n>mid</span><span class=o>)</span>                    <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>++];</span>
-<span class=ln> 9</span>        <span class=k>else</span> <span class=k>if</span> <span class=o>(</span><span class=n>j</span> <span class=o>&gt;</span> <span class=n>hi</span> <span class=o>)</span>               <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>++];</span>
-<span class=ln>10</span>        <span class=k>else</span> <span class=k>if</span> <span class=o>(</span><span class=n>less</span><span class=o>(</span><span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>],</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>]))</span>  <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>++];</span>
-<span class=ln>11</span>        <span class=k>else</span>                            <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>++];</span>
-<span class=ln>12</span><span class=o>}</span>
-</code></pre></div><h3 id=自顶而下的合并>自顶而下的合并</h3>
-<p>上面的实现是著名的分治的例子：如果对两个子数组排序，那么将两个数组合并后就相当于对整个数组排序了。
-要理解合并排序，需要理解调用的过程。假设排序a[0&mldr;15], 需要调用a[0&mldr;7] ->a[0&mldr;3] ->a[0&mldr;1] 从而调用merge(0, 1), 然后继续调用a[2&mldr;3] 调用merge(2,3)如此反复。 我们可以看出，<strong>sort通过递归，提供了一组调用merge的顺序组，排序是通过不断的merge来实现的，而sort则指导什么时候对什么数组进行merge。</strong></p>
-<p>Proposition F: 对于长度为N的数组，自顶而下的合并排序使用1/2NlgN ～ NlgN之间次数的比较
+'><i class="fas fa-fw fa-copyright"></i></a></div></div><div class=card-header><h1 class="card-title post-title">排序-合并排序</h1></div><div class=card-body><div class=post-meta><span class=post-date title="创建于 2022-01-12 07:03:34 +0000 UTC。">2022-01-12
+</span><span class=post-reading-time>4 分钟阅读
+</span><span class=post-taxonomies><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded-pill post-taxonomy">算法</a><a href=/zh-cn/tags/sort/ class="badge rounded-pill post-taxonomy">sort</a></span></div><div class="post-content mb-3"><blockquote><p>本文内容来自 Algorithhms 4th Edition</p></blockquote><h3 id=实现>实现</h3><p>这个算法的基本思想是合并：将两个排好序的数组合并成一个数组。
+因此合并排序简单来说就是将一个数组分成两半，递归的将两半各自排好序，再将其合并成一个大的数组。 合并排序最重要的一个特点就是能保证执行时间是NlogN。缺点是需要跟N成比例的额外的空间。</p><p>要实现合并排序，最直接的就是实现将两个数组合并成一个数组的方法：额外创建一个数组，从两个数组中不断取最小的对象放到这个存放数组中。
+当要对一个大数组进行合并排序时，我们需要做大量的合并操作，因此每次创建新数组去保存结果也是一笔不小的开销。因此，如果能够直接在数组上操作，可以大大减小开销————想起来很简单，实现起来很复杂，特别是跟用额外数组做合并的方式比较起来的话。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=ln> 1</span><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>merge</span><span class=o>(</span><span class=n>Comparable</span><span class=o>[]</span> <span class=n>a</span><span class=o>,</span> <span class=kt>int</span> <span class=n>lo</span><span class=o>,</span> <span class=kt>int</span> <span class=n>mid</span><span class=o>,</span> <span class=kt>int</span> <span class=n>hi</span><span class=o>)</span> <span class=o>{</span> 
+</span></span><span class=line><span class=ln> 2</span><span class=cl>    <span class=c1>// Merge a[lo..mid] with a[mid+1..hi].
+</span></span></span><span class=line><span class=ln> 3</span><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>lo</span><span class=o>,</span> <span class=n>j</span> <span class=o>=</span> <span class=n>mid</span><span class=o>+</span><span class=n>1</span><span class=o>;</span>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>    <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=n>lo</span><span class=o>;</span> <span class=n>k</span> <span class=o>&lt;=</span> <span class=n>hi</span><span class=o>;</span> <span class=n>k</span><span class=o>++)</span> <span class=c1>// Copy a[lo..hi] to aux[lo..hi].
+</span></span></span><span class=line><span class=ln> 5</span><span class=cl><span class=c1></span>        <span class=n>aux</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>];</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>
+</span></span><span class=line><span class=ln> 7</span><span class=cl>    <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=n>lo</span><span class=o>;</span> <span class=n>k</span> <span class=o>&lt;=</span> <span class=n>hi</span><span class=o>;</span> <span class=n>k</span><span class=o>++)</span> <span class=c1>// Merge back to a[lo..hi].
+</span></span></span><span class=line><span class=ln> 8</span><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=o>(</span><span class=n>i</span> <span class=o>&gt;</span> <span class=n>mid</span><span class=o>)</span>                    <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>++];</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl>        <span class=k>else</span> <span class=k>if</span> <span class=o>(</span><span class=n>j</span> <span class=o>&gt;</span> <span class=n>hi</span> <span class=o>)</span>               <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>++];</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl>        <span class=k>else</span> <span class=k>if</span> <span class=o>(</span><span class=n>less</span><span class=o>(</span><span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>],</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>]))</span>  <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>j</span><span class=o>++];</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl>        <span class=k>else</span>                            <span class=n>a</span><span class=o>[</span><span class=n>k</span><span class=o>]</span> <span class=o>=</span> <span class=n>aux</span><span class=o>[</span><span class=n>i</span><span class=o>++];</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl><span class=o>}</span>
+</span></span></code></pre></div><h3 id=自顶而下的合并>自顶而下的合并</h3><p>上面的实现是著名的分治的例子：如果对两个子数组排序，那么将两个数组合并后就相当于对整个数组排序了。
+要理解合并排序，需要理解调用的过程。假设排序a[0&mldr;15], 需要调用a[0&mldr;7] ->a[0&mldr;3] ->a[0&mldr;1] 从而调用merge(0, 1), 然后继续调用a[2&mldr;3] 调用merge(2,3)如此反复。 我们可以看出，<strong>sort通过递归，提供了一组调用merge的顺序组，排序是通过不断的merge来实现的，而sort则指导什么时候对什么数组进行merge。</strong></p><p>Proposition F: 对于长度为N的数组，自顶而下的合并排序使用1/2NlgN ～ NlgN之间次数的比较
 证明：假设C(N)代表对长度为N的数组排序所需要的比较次数，我们有<code>C(0)=C(1)=0</code>。对于N>0,我们按照递归的思路，可以得到<code>C(N)&lt;= C(N/2) + C(N/2) + N</code>, 其中第一个C(N/2)代表做半部排序的次数，第二个代表右半部的次数。 同时还有<code>C(N) >= C(N/2) + C(N/2) + N/2</code>, 这里N/2代表左半部（我们至少要比较一半）
-如果N = 2n, 那么左半部和右半部都是2n-1。 由此我们推导出 C(2n) = 2C(2n-1) + 2n (后面略)</p>
-<p>换一种方式来理解Proposition F</p>
-<p><img class=img-fluid alt=subarray src=/zh-cn/guide/algo-sort-mergesort/images/sort-mergesort-subarray.png loading=lazy width=813 height=246>
-</p>
-<h4 id=优化>优化</h4>
-<p>对上面算法可以继续优化</p>
-<ul>
-<li>由于对小数组，插入排序是高效的，因此我们当递归到小数组（比如长度小于15）时，我们可以用插入排序来替代</li>
-<li>在合并两个数组前先检查左半部的最后一个对象是否刚好小于等于右半部的第一个对象，如果是，我们就不用挨个比较了</li>
-<li>消除额外的数组复制。 我们合并时，要不然先将对象复制到一个数组，然后合并回来，要不然将对象合并到一个数组，再复制回来。因此如果我们能够在一次合并时，将一个数组作为输入，一个作为输出，下次合并时将输出的数组作为输入，就能够减少一次复制</li>
-</ul>
-<p>注意：以上的优化不是必须的，因为优化往往伴随着代码的复杂。解决一个问题时，我们应该首先选用最简单的办法，当遇到性能瓶颈时再考虑优化他。</p>
-<h3 id=自下而上的合并>自下而上的合并</h3>
-<p>对于分治的思想，由于最终都是将大问题逐渐分解成最小的问题，所以我们可以自下而上，即现两个两个合并，然后四个四个合并，直到整个数组的合并。</p>
-<p>对于长度为2的幂的数组，自顶而下 和 自下而上效率时相同的，只是顺序相反， 但是其他长度则可能有效率上的差距</p>
-<h3 id=排序算法的复杂度>排序算法的复杂度</h3>
-<p>学习合并算法的一个重要原因是因为通过他我们可以推导出排序算法的复杂度，即排序算法的极限。 研究算法的复杂度就是建立一个算法的计算模型。 对于以比较为基础的排序算法（插入，选择，合并排序都是此类， 还有不用通过比较来排序的算法），关键制约是：</p>
-<ol>
-<li>可以处理任意多的输入</li>
-<li>我们除了在比较时能够知道两个对象的key之外得不到其他任何key的信息
-Prop I. 没有以比较为基础的排序算法可以做到比较的次数少于lg(N!) ~ NlgN</li>
-</ol>
-</div><hr><div class="post-navs d-flex mb-3 justify-content-evenly">
-<div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
-<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
-</a>
-</div><div class="post-nav post-next">
-<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
-</a>
-<i class="fas fa-fw fa-chevron-right"></i>
-</div></div></div>
-</article><section class="related-posts row card component">
-<div class=card-header>
-<h2 class=card-title>相关文章</h2>
-</div>
-<div class=card-body>
-<ul class=post-list><li>
-<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
-</a>
-<span class="float-end post-date">2022-01-10
-</span>
-</li><li>
-<a href=/zh-cn/guide/use-hugo-with-github-page/>Use Hugo With Github Page
-</a>
-<span class="float-end post-date">2021-12-11
-</span>
-</li><li>
-<a href=/zh-cn/posts/my-first-post/>My First Post
-</a>
-<span class="float-end post-date">2021-12-09
-</span>
-</li><li>
-<a href=/zh-cn/about/>About
-</a>
-<span class="float-end post-date">2021-12-09
-</span>
-</li><li>
-<a href=/zh-cn/contact/>Contact Me
-</a>
-<span class="float-end post-date">0001-01-01
-</span>
-</li></ul>
-</div>
-</section></div>
-</div><aside class="col-lg-4 sidebar d-flex">
-<div class=container>
-<section class="card row text-center profile component">
-<div class=card-body>
-<div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Yao Yuqi" src=/images/profile.webp loading=lazy width=1024 height=768>
-</div>
-<div class="col-12 profile-meta"><div class=profile-name>Yao Yuqi</div><div class=profile-bio>Husband, Father, PHPer, Javaer, Full Stack Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>Luyi Master</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu, China</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/zh-cn/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/zh-cn/contact/>Contact Me</a></div></div>
-</div>
-</section>
-<section class="recent-posts row card component">
-<div class=card-header>
-<h2 class=card-title>最近文章</h2>
-</div>
-<div class=card-body>
-<ul class=post-list><li>
-<a href=/zh-cn/guide/algo-search-balanced-bst/>查找-平衡二叉树
-</a>
-<span class="float-end post-date">2022-01-27
-</span>
-</li><li>
-<a href=/zh-cn/guide/algo-search-bst/>查找-二叉树
-</a>
-<span class="float-end post-date">2022-01-26
-</span>
-</li><li>
-<a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序
-</a>
-<span class="float-end post-date">2022-01-13
-</span>
-</li><li>
-<a href=/zh-cn/guide/algo-sort-mergesort/>排序-合并排序
-</a>
-<span class="float-end post-date">2022-01-12
-</span>
-</li><li>
-<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序
-</a>
-<span class="float-end post-date">2022-01-10
-</span>
-</li></ul>
-</div>
-</section><section class="taxonomies row card component">
-<div class=card-header>
-<h2 class=card-title>
-<a href=/zh-cn/categories>分类</a>
-</h2>
-</div>
-<div class=card-body>
-<div class=py-2><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded post-taxonomy" title=算法>
-算法
-</a><a href=/zh-cn/categories/%E5%B7%A5%E5%85%B7/ class="badge rounded post-taxonomy" title=工具>
-工具
-</a><a href=/zh-cn/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E7%A2%8E/ class="badge rounded post-taxonomy" title=生活琐碎>
-生活琐碎
-</a></div>
-</div>
-</section><section class="taxonomies row card component">
-<div class=card-header>
-<h2 class=card-title>
-<a href=/zh-cn/tags>标签</a>
-</h2>
-</div>
-<div class=card-body>
-<div class=py-2><a href=/zh-cn/tags/sort/ class="badge rounded post-taxonomy" title=sort>
-sort
-</a><a href=/zh-cn/tags/bst/ class="badge rounded post-taxonomy" title=bst>
-bst
-</a><a href=/zh-cn/tags/search/ class="badge rounded post-taxonomy" title=search>
-search
-</a><a href=/zh-cn/tags/kids/ class="badge rounded post-taxonomy" title=kids>
-kids
-</a><a href=/zh-cn/tags/life/ class="badge rounded post-taxonomy" title=life>
-life
-</a></div>
-</div>
-</section>
-</div>
-</aside>
-</div>
-</main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:52154135@qq.com title=Email>
-<i class="fas fa-fw fa-2x fa-envelope"></i>
-</a></nav>
-<div class="copyright mb-2">
-Copyright © 2020-2022 Yao Yuqi. All Rights Reserved.
-</div>
-<div class="powered-by mb-2">
-Powered by <a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a> and the <a href=https://github.com/razonyang/hugo-theme-bootstrap target=_blank rel="noopener noreferrer">Bootstrap</a> theme.
-</div>
-</footer>
-<script src=/js/bundle.min.4ef9d47b81edceeabf12a468e0a8228e2973b77670b64957bd005dc55cde7bea.js integrity="sha256-TvnUe4Htzuq/EqRo4Kgijilzt3ZwtklXvQBdxVzee+o=" crossorigin=anonymous defer></script><script>'serviceWorker'in navigator&&window.addEventListener('load',()=>{navigator.serviceWorker.register('/service-worker.js').then(function(a){console.log('Successfully registered service worker',a)}).catch(function(a){console.warn('Error whilst registering service worker',a)})})</script>
-</body>
-</html>
+如果N = 2n, 那么左半部和右半部都是2n-1。 由此我们推导出 C(2n) = 2C(2n-1) + 2n (后面略)</p><p>换一种方式来理解Proposition F</p><p><img class=img-fluid alt=subarray src=/zh-cn/guide/algo-sort-mergesort/images/sort-mergesort-subarray.png loading=lazy width=813 height=246></p><h4 id=优化>优化</h4><p>对上面算法可以继续优化</p><ul><li>由于对小数组，插入排序是高效的，因此我们当递归到小数组（比如长度小于15）时，我们可以用插入排序来替代</li><li>在合并两个数组前先检查左半部的最后一个对象是否刚好小于等于右半部的第一个对象，如果是，我们就不用挨个比较了</li><li>消除额外的数组复制。 我们合并时，要不然先将对象复制到一个数组，然后合并回来，要不然将对象合并到一个数组，再复制回来。因此如果我们能够在一次合并时，将一个数组作为输入，一个作为输出，下次合并时将输出的数组作为输入，就能够减少一次复制</li></ul><p>注意：以上的优化不是必须的，因为优化往往伴随着代码的复杂。解决一个问题时，我们应该首先选用最简单的办法，当遇到性能瓶颈时再考虑优化他。</p><h3 id=自下而上的合并>自下而上的合并</h3><p>对于分治的思想，由于最终都是将大问题逐渐分解成最小的问题，所以我们可以自下而上，即现两个两个合并，然后四个四个合并，直到整个数组的合并。</p><p>对于长度为2的幂的数组，自顶而下 和 自下而上效率时相同的，只是顺序相反， 但是其他长度则可能有效率上的差距</p><h3 id=排序算法的复杂度>排序算法的复杂度</h3><p>学习合并算法的一个重要原因是因为通过他我们可以推导出排序算法的复杂度，即排序算法的极限。 研究算法的复杂度就是建立一个算法的计算模型。 对于以比较为基础的排序算法（插入，选择，合并排序都是此类， 还有不用通过比较来排序的算法），关键制约是：</p><ol><li>可以处理任意多的输入</li><li>我们除了在比较时能够知道两个对象的key之外得不到其他任何key的信息
+Prop I. 没有以比较为基础的排序算法可以做到比较的次数少于lg(N!) ~ NlgN</li></ol></div><hr><div class="post-navs d-flex mb-3 justify-content-evenly"><div class="post-nav post-prev"><i class="fas fa-fw fa-chevron-left"></i>
+<a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序</a></div><div class="post-nav post-next"><a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序</a>
+<i class="fas fa-fw fa-chevron-right"></i></div></div></div></article><section class="related-posts row card component"><div class=card-header><h2 class=card-title>相关文章</h2></div><div class=card-body><ul class=post-list><li><a href=/zh-cn/guide/algo-sort-elementory/>排序-基本排序</a>
+<span class="float-end post-date">2022-01-10</span></li><li><a href=/zh-cn/guide/use-hugo-with-github-page/>Use Hugo With Github Page</a>
+<span class="float-end post-date">2021-12-11</span></li><li><a href=/zh-cn/posts/my-first-post/>My First Post</a>
+<span class="float-end post-date">2021-12-09</span></li><li><a href=/zh-cn/about/>About</a>
+<span class="float-end post-date">2021-12-09</span></li><li><a href=/zh-cn/offline/>Offline</a>
+<span class="float-end post-date">0001-01-01</span></li></ul></div></section></div></div><aside class="col-lg-4 sidebar d-flex"><div class=container><section class="card row text-center profile component"><div class=card-body><div class="col-12 d-flex align-items-center justify-content-center"><img class="profile-avatar rounded-circle" alt="Yao Yuqi" src=/images/profile.webp loading=lazy width=1024 height=768></div><div class="col-12 profile-meta"><div class=profile-name>Yao Yuqi</div><div class=profile-bio>Husband, Father, PHPer, Javaer, Full Stack Engineer.</div><div class=profile-company><i class="fas fa-fw fa-building"></i>Luyi Master</div><div class=profile-location><i class="fas fa-fw fa-map-marker-alt"></i>Chengdu, China</div><div class=profile-about><i class="fas fa-fw fa-user"></i><a href=/zh-cn/about/>About</a></div><div class=profile-contact><i class="fas fa-fw fa-question-circle"></i><a href=/zh-cn/contact/>联系我们</a></div></div></div></section><section class="recent-posts row card component"><div class=card-header><h2 class=card-title>最近文章</h2></div><div class=card-body><ul class=post-list><li><a href=/zh-cn/guide/algo-graph-undirected-graph/>无向图</a>
+<span class="float-end post-date">2022-07-29</span></li><li><a href=/zh-cn/guide/algo-search-balanced-bst/>查找-平衡二叉树</a>
+<span class="float-end post-date">2022-01-27</span></li><li><a href=/zh-cn/guide/algo-search-bst/>查找-二叉树</a>
+<span class="float-end post-date">2022-01-26</span></li><li><a href=/zh-cn/guide/algo-sort-quicksort/>排序-快速排序</a>
+<span class="float-end post-date">2022-01-13</span></li><li><a href=/zh-cn/guide/algo-sort-mergesort/>排序-合并排序</a>
+<span class="float-end post-date">2022-01-12</span></li></ul></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/zh-cn/categories>分类</a></h2></div><div class=card-body><div class=py-2><a href=/zh-cn/categories/%E7%AE%97%E6%B3%95/ class="badge rounded post-taxonomy" title=算法>算法
+</a><a href=/zh-cn/categories/%E5%B7%A5%E5%85%B7/ class="badge rounded post-taxonomy" title=工具>工具
+</a><a href=/zh-cn/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E7%A2%8E/ class="badge rounded post-taxonomy" title=生活琐碎>生活琐碎</a></div></div></section><section class="taxonomies row card component"><div class=card-header><h2 class=card-title><a href=/zh-cn/tags>标签</a></h2></div><div class=card-body><div class=py-2><a href=/zh-cn/tags/sort/ class="badge rounded post-taxonomy" title=sort>sort
+</a><a href=/zh-cn/tags/bst/ class="badge rounded post-taxonomy" title=bst>bst
+</a><a href=/zh-cn/tags/search/ class="badge rounded post-taxonomy" title=search>search
+</a><a href=/zh-cn/tags/graph/ class="badge rounded post-taxonomy" title=graph>graph
+</a><a href=/zh-cn/tags/kids/ class="badge rounded post-taxonomy" title=kids>kids
+</a><a href=/zh-cn/tags/life/ class="badge rounded post-taxonomy" title=life>life</a></div></div></section></div></aside></div></main><footer class="footer mt-auto py-3 text-center container"><nav class="social-links nav my-2 justify-content-center"><a class="nav-link social-link" href=mailto:52154135@qq.com title=Email><i class="fas fa-fw fa-2x fa-envelope"></i></a></nav><div class="copyright mb-2">Copyright © 2020-2022 Yao Yuqi. All Rights Reserved.</div><div class="powered-by mb-2">Powered by <a href=https://gohugo.io target=_blank rel="noopener noreferrer">Hugo</a> and the <a href=https://github.com/razonyang/hugo-theme-bootstrap target=_blank rel="noopener noreferrer">Bootstrap</a> theme.</div></footer><script src=/js/bundle.min.9ef2a3b853c1ef7ce57a1d7c4e8a2f3352a9eec2a2ac9a114e5118621f7d740a.js integrity="sha256-nvKjuFPB73zleh18ToovM1Kp7sKirJoRTlEYYh99dAo=" crossorigin=anonymous defer></script><script>"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/service-worker.js").then(function(e){console.log("Successfully registered service worker",e)}).catch(function(e){console.warn("Error whilst registering service worker",e)})})</script></body></html>
