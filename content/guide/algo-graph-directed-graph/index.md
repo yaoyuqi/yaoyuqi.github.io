@@ -120,3 +120,27 @@ post order的特征是远的点在前，用这个顺序可不可以呢。答案�
 
 对于order, **一定参看[这篇文章](https://eli.thegreenplace.net/2015/directed-graph-traversal-orderings-and-applications-to-data-flow-analysis/)**
 
+###### 官方证明
+- 首先证明在一组递归dfs中碰到的点都是在一个Strongly Component中。 这里使用反证法。假设点v是与dfs(G, s)强连接但是又不能被dfs(G, s)访问到的，那么必然v在之前的组的dfs遍历中被标记了。由于s,v是强连接，那么之前组的dfs访问到v的时候必然会访问到s, 因为那时s也没被标记。如果那样，s点开始dfs组会被跳过。由此产生矛盾。
+- 接着证明如果dfs(G, s)访问到点v, 那么点v与点s是强连接的。由于dfs(G,s)能够访问到v,说明有路径s->v， 那么只需要证明存在v->s的路径即可。换句话说就是在GR(G的reverse)中存在s->v。 由于我们是按照GR的RPO顺序遍历的，s在v的前面，那么在GR中dfs(G, v)先于dfs(G, s)结束，于是可分为那种可能
+  1. dfs(G,v)先于dfs(G,s)开始，并且在dfs(G, s)开始调用前结束。
+  2. dfs(G,v)后于dfs(G,s)开始，并且在dfs(G, s)结束前结束。
+  由于G中明确了又s->v, 那么GR中必然有v->s, 所以1不可能，由2可以推测出在GR里面有s->v。
+
+#### 重新回顾Reachability
+- 对于无向图，通过CC我们判断出有多少个Components,而Component内是相连的，不同的Component是不相通的，从而可以判断出对于任何任何点v,w是否相连
+- 对于有向图，通过KosarajuCC我们可以得到Strongly Components, 从而判断v,w是否强连接，即v->w && w->v。但是对于不是强连接的点，我们无法判断其是否想通
+由此引出了一个判断任意点是否相连的问题
+无向图通过CC, 通过linear time process, 可以在constant time得到查询结果
+有向图却不能通过KosarajuCC来同样做到
+
+##### 传递闭包 Transitive Clousure
+有向图G的传递闭包指包含所有G的顶点，如果从G有v->w， 那么传递闭包中则存在v->w的边。
+一个有向图可能是稀疏的，但是其传递闭包可能是紧凑的。 构造出传递闭包，其实就实现了有向图中两点连通的判断问题。
+
+###### TransitiveClousure
+算法很简单，就是对每个点分别执行DirectedDFS来预处理，判断时直接检查对应的值即可。
+这个算法问题在于需要大量的空间，对V个顶点的图需要V*V的空间
+因此对于巨型图，这个算法是不实际的。
+需要指出，现在还没找到可以快速解决的这个问题的算法。
+
